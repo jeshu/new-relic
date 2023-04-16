@@ -1,0 +1,80 @@
+version: '2'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 22181:2181
+  
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://kafka:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  mongo:
+      image: mongo
+      restart: always
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: example
+      command: mongod
+      ports:
+      - 27017:27017
+    
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+
+  uploadvideos:
+    build: ./uploadvideos
+    depends_on: 
+      - kafka
+      - zookeeper
+      - searchvideos
+    ports:
+      - 3000:3000
+    environment:
+      KAFKA_BROKER: kafka:29092
+      KAFKA_PRODUCER: upload-video
+      KAFKA_CONSUMER: video-preprocesser
+      KAFKA_TOPIC_MEDIA: vidshare-videoupload-media
+      KAFKA_TOPIC_METADATA: vidshare-videoupload-metadata
+      ENV_NAME: dev
+      KAFKA_TOPIC_METADATA_UPDATE: vidshare-videoupload-metadata-update
+      KAFKA_TOPIC_DELETE: vidshare-videoupload-delete
+  searchvideos:
+    build: ./searchvideos
+    depends_on: 
+      - kafka
+      - zookeeper
+      - mongo
+    ports:
+      - 3001:3000
+    environment:
+      KAFKA_BROKER: kafka:29092
+      MONGODB_URL: mongodb://root:example@mongo:27017/
+      MONGODB_DB_NAME: videos
+      KAFKA_PRODUCER: upload-video
+      KAFKA_CONSUMER: video-preprocesser
+      KAFKA_TOPIC_MEDIA: vidshare-videoupload-media
+      KAFKA_TOPIC_METADATA: vidshare-videoupload-metadata
+      ENV_NAME: dev
+      KAFKA_TOPIC_METADATA_UPDATE: vidshare-videoupload-metadata-update
+      KAFKA_TOPIC_DELETE: vidshare-videoupload-delete

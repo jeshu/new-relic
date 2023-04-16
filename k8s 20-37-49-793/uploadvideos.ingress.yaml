@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vishareingress
+  labels:
+    name: vidshareingress
+spec:
+  ingressClassName: kong
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/upload"
+        backend:
+          service:
+            name: uploadvideos
+            port: 
+              number: 80
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/search"
+        backend:
+          service:
+            name: searchvideos
+            port: 
+              number: 80
+  

@@ -1,0 +1,8 @@
+usePassword: true
+auth:
+  rootPassword: mongo123
+  usernames: [vidshare-user]
+  passwords: [vidshare-password]
+  databases: [videos]
+replicaSet:
+  enabled: true

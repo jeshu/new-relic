@@ -1,0 +1,255 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 2,
+  "numPassedTests": 11,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 2,
+  "numTotalTests": 11,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1652009479806,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 2,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1652009483095,
+        "runtime": 3205,
+        "slow": false,
+        "start": 1652009479890
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/Users/brikumar2/Projects/TGA/microservices/VidShare/uploadvideos/test/index.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Basic routs validations"
+          ],
+          "duration": 117,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Basic routs validations root route validation",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "root route validation"
+        },
+        {
+          "ancestorTitles": [
+            "Basic routs validations"
+          ],
+          "duration": 28,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Basic routs validations health-check route validation",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "health-check route validation"
+        }
+      ],
+      "failureMessage": null
+    },
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 9,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1652009485116,
+        "runtime": 1965,
+        "slow": false,
+        "start": 1652009483151
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/Users/brikumar2/Projects/TGA/microservices/VidShare/uploadvideos/test/videoUpload.test.js",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "Video upload and video status route validations"
+          ],
+          "duration": 122,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Video upload and video status route validations upload video should return 201 with file and videoId",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "upload video should return 201 with file and videoId"
+        },
+        {
+          "ancestorTitles": [
+            "Video upload and video status route validations"
+          ],
+          "duration": 41,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Video upload and video status route validations upload video should return 400 without file",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "upload video should return 400 without file"
+        },
+        {
+          "ancestorTitles": [
+            "Video upload and video status route validations"
+          ],
+          "duration": 50,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Video upload and video status route validations upload video should return 400 with file of 0 size",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "upload video should return 400 with file of 0 size"
+        },
+        {
+          "ancestorTitles": [
+            "Video upload and video status route validations"
+          ],
+          "duration": 55,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Video upload and video status route validations upload video should return 400 without videoId",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "upload video should return 400 without videoId"
+        },
+        {
+          "ancestorTitles": [
+            "Video upload and video status route validations"
+          ],
+          "duration": 37,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Video upload and video status route validations video metadata update tests",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "video metadata update tests"
+        },
+        {
+          "ancestorTitles": [
+            "Video upload and video status route validations"
+          ],
+          "duration": 21,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Video upload and video status route validations video metadata delete tests",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "video metadata delete tests"
+        },
+        {
+          "ancestorTitles": [
+            "Video upload and video status route validations"
+          ],
+          "duration": 73,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Video upload and video status route validations video upload should throw error if error in publishing message",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "video upload should throw error if error in publishing message"
+        },
+        {
+          "ancestorTitles": [
+            "Video upload and video status route validations"
+          ],
+          "duration": 39,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Video upload and video status route validations video update should throw error if error in publishing message",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "video update should throw error if error in publishing message"
+        },
+        {
+          "ancestorTitles": [
+            "Video upload and video status route validations"
+          ],
+          "duration": 27,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "Video upload and video status route validations video delete should throw error if error in publishing message",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "video delete should throw error if error in publishing message"
+        }
+      ],
+      "failureMessage": null
+    }
+  ],
+  "wasInterrupted": false
+}

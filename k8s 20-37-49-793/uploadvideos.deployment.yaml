@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uploadvidoes
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: uploadvidoes
+  template:
+    metadata:
+      labels:
+        app: uploadvidoes
+    spec:
+      containers:
+      - name: uploadvidoes
+        image: docker.io/jeshu911/uploadvideos
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+        env: 
+        - name: KAFKA_BROKER
+          value: vidshare-kafka:9092
+        - name: KAFKA_PRODUCER
+          value: upload-videos
+        - name: KAFKA_CONSUMER
+          value : video-preprocesser
+        - name: KAFKA_TOPIC_MEDIA
+          value : vidshare-videoupload-media
+        - name: KAFKA_TOPIC_METADATA
+          value : vidshare-videoupload-metadataff
+        - name: ENV_NAME
+          value : dev
+        - name: KAFKA_TOPIC_METADATA_UPDATE
+          value : vidshare-videoupload-metadata-update
+        - name: KAFKA_TOPIC_DELETE
+          value : vidshare-videoupload-delete
+        
